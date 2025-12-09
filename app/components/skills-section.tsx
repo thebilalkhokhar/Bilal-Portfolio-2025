@@ -38,10 +38,10 @@ const skills = [
 ];
 
 const categories = [
-  { name: "Frontend", color: "from-blue-500 to-cyan-500" },
-  { name: "Backend", color: "from-purple-500 to-pink-500" },
-  { name: "Tools", color: "from-green-500 to-emerald-500" },
-  { name: "Cloud", color: "from-orange-500 to-red-500" },
+  { name: "Frontend" },
+  { name: "Backend" },
+  { name: "Tools" },
+  { name: "Cloud" },
 ];
 
 export default function SkillsSection() {
@@ -90,14 +90,25 @@ export default function SkillsSection() {
               >
                 {/* Category Header */}
                 <div className="flex items-center gap-4 mb-6">
-                  <div className={`h-1 w-16 bg-gradient-to-r ${category.color} rounded-full`} />
+                  <div 
+                    className="h-1 w-16 rounded-full"
+                    style={{
+                      background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                    }}
+                  />
                   <h3
                     className="text-2xl sm:text-3xl font-bold text-gray-900"
                     style={{ fontFamily: "var(--font-space-grotesk)" }}
                   >
                     {category.name}
                   </h3>
-                  <div className={`flex-1 h-1 bg-gradient-to-r ${category.color} rounded-full opacity-20`} />
+                  <div 
+                    className="flex-1 h-1 rounded-full"
+                    style={{
+                      background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                      opacity: 0.2,
+                    }}
+                  />
                 </div>
 
                 {/* Skills Grid */}
@@ -122,11 +133,18 @@ export default function SkillsSection() {
                       className="group relative"
                     >
                       <div
-                        className="relative rounded-2xl p-6 bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                        className="relative rounded-2xl p-6 bg-white/50 backdrop-blur-md border border-gray-200/50 transition-all duration-300 cursor-pointer"
                         style={{
                           background: "rgba(255, 255, 255, 0.5)",
                           backdropFilter: "blur(12px) saturate(180%)",
                           WebkitBackdropFilter: "blur(12px) saturate(180%)",
+                          boxShadow: "0 4px 6px -1px rgba(138, 35, 135, 0.12), 0 2px 4px -2px rgba(233, 64, 87, 0.12)",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(233, 64, 87, 0.2), 0 4px 6px -4px rgba(138, 35, 135, 0.2)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.boxShadow = "0 4px 6px -1px rgba(138, 35, 135, 0.12), 0 2px 4px -2px rgba(233, 64, 87, 0.12)";
                         }}
                       >
                         {/* Hover Glow Effect */}

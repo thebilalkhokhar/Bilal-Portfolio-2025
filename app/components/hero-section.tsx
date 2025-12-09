@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Download, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, Download, ArrowDown, MessageCircle } from "lucide-react";
 import ButtonEffect from "./ui/button-effect";
 
 export default function HeroSection() {
@@ -82,16 +82,34 @@ export default function HeroSection() {
             >
               <ButtonEffect
                 href="#contact"
-                Style="px-8 py-4 rounded-full bg-gray-900 text-white font-semibold shadow-lg shadow-gray-900/30 hover:shadow-xl hover:shadow-gray-900/40 flex items-center justify-center gap-2"
+                Style="px-8 py-4 rounded-full bg-gray-900 text-white font-semibold flex items-center justify-center gap-2"
                 strength={2}
+                style={{
+                  boxShadow: "0 10px 25px -5px rgba(138, 35, 135, 0.3), 0 8px 10px -6px rgba(138, 35, 135, 0.3)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 20px 35px -5px rgba(233, 64, 87, 0.4), 0 10px 15px -6px rgba(138, 35, 135, 0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "0 10px 25px -5px rgba(138, 35, 135, 0.3), 0 8px 10px -6px rgba(138, 35, 135, 0.3)";
+                }}
               >
                 <Mail className="w-5 h-5" />
                 Get In Touch
               </ButtonEffect>
               <ButtonEffect
                 href="#work"
-                Style="px-8 py-4 rounded-full bg-white text-gray-900 font-semibold border-2 border-gray-200 hover:border-gray-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                Style="px-8 py-4 rounded-full bg-white text-gray-900 font-semibold border-2 border-gray-200 hover:border-gray-300 flex items-center justify-center gap-2"
                 strength={2}
+                style={{
+                  boxShadow: "0 4px 6px -1px rgba(242, 113, 33, 0.2), 0 2px 4px -2px rgba(233, 64, 87, 0.2)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(233, 64, 87, 0.3), 0 4px 6px -4px rgba(138, 35, 135, 0.3)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "0 4px 6px -1px rgba(242, 113, 33, 0.2), 0 2px 4px -2px rgba(233, 64, 87, 0.2)";
+                }}
               >
                 <Download className="w-5 h-5" />
                 View My Work
@@ -109,6 +127,7 @@ export default function HeroSection() {
                 { icon: Github, href: "https://github.com/thebilalkhokhar", label: "GitHub" },
                 { icon: Linkedin, href: "https://linkedin.com/in/thebilalkhokhar", label: "LinkedIn" },
                 { icon: Mail, href: "mailto:bilalkhokhar228@gmail.com", label: "Email" },
+                { icon: MessageCircle, href: "https://wa.me/923134432915", label: "WhatsApp" },
               ].map((social) => (
                 <motion.a
                   key={social.label}  
@@ -117,7 +136,22 @@ export default function HeroSection() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-12 h-12 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center text-gray-700 hover:text-blue-600 hover:border-blue-600 transition-all duration-300 shadow-md hover:shadow-lg"
+                  className="w-12 h-12 rounded-full bg-white border-2 flex items-center justify-center transition-all duration-300"
+                  style={{
+                    borderColor: "rgba(138, 35, 135, 0.3)",
+                    color: "#8A2387",
+                    boxShadow: "0 4px 6px -1px rgba(138, 35, 135, 0.12), 0 2px 4px -2px rgba(233, 64, 87, 0.12)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "#E94057";
+                    e.currentTarget.style.color = "#E94057";
+                    e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(233, 64, 87, 0.2), 0 4px 6px -4px rgba(138, 35, 135, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(138, 35, 135, 0.3)";
+                    e.currentTarget.style.color = "#8A2387";
+                    e.currentTarget.style.boxShadow = "0 4px 6px -1px rgba(138, 35, 135, 0.12), 0 2px 4px -2px rgba(233, 64, 87, 0.12)";
+                  }}
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />

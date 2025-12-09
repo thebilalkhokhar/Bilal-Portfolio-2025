@@ -29,7 +29,7 @@ export default function Navbar() {
           backdropFilter: "blur(12px) saturate(180%)",
           WebkitBackdropFilter: "blur(12px) saturate(180%)",
           border: "1px solid rgba(255, 255, 255, 0.3)",
-          boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.5)",
+          boxShadow: "0 8px 32px 0 rgba(138, 35, 135, 0.15), 0 4px 16px 0 rgba(233, 64, 87, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.5)",
         }}
       >
         <div className="flex items-center justify-between h-14 md:h-16 px-4 md:px-6 lg:px-8">
@@ -54,7 +54,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-center flex-1">
+          <div className="hidden md:flex items-center justify-end flex-1">
             <div className="flex items-center gap-1 lg:gap-2">
               {navItems.map((item, index) => (
                 <motion.div
@@ -65,13 +65,14 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="relative block px-4 py-2 text-sm font-medium text-gray-700 rounded-full transition-all duration-300 group"
+                    className="relative block px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 group"
+                    style={{ color: "#8A2387" }}
                   >
                     <motion.span
                       className="absolute inset-0 rounded-full"
                       initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
                       whileHover={{ 
-                        background: "linear-gradient(to right, rgba(242, 113, 33, 0.1), rgba(233, 64, 87, 0.1), rgba(138, 35, 135, 0.1))"
+                        background: "linear-gradient(to right, rgba(242, 113, 33, 0.15), rgba(233, 64, 87, 0.15), rgba(138, 35, 135, 0.15))"
                       }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
                     />
@@ -80,8 +81,24 @@ export default function Navbar() {
                       whileHover={{ scale: 1.05 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                      <item.icon className="w-4 h-4" style={{ color: "#8A2387" }} />
-                      <span className="whitespace-nowrap">{item.name}</span>
+                      <motion.div
+                        whileHover={{ 
+                          color: "#E94057",
+                          scale: 1.1 
+                        }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <item.icon className="w-4 h-4" style={{ color: "inherit" }} />
+                      </motion.div>
+                      <motion.span 
+                        className="whitespace-nowrap"
+                        whileHover={{ 
+                          color: "#E94057",
+                        }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {item.name}
+                      </motion.span>
                     </motion.span>
                   </Link>
                 </motion.div>

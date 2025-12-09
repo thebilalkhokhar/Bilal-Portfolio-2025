@@ -41,11 +41,19 @@ export default function WorkSection() {
             className="group relative"
           >
             <div
-              className="rounded-3xl p-8 bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="rounded-3xl p-8 bg-white/50 backdrop-blur-md border border-gray-200/50 transition-all duration-300"
               style={{
                 background: "rgba(255, 255, 255, 0.5)",
                 backdropFilter: "blur(12px) saturate(180%)",
                 WebkitBackdropFilter: "blur(12px) saturate(180%)",
+                border: "1px solid rgba(138, 35, 135, 0.2)",
+                boxShadow: "0 10px 25px -5px rgba(138, 35, 135, 0.15), 0 8px 10px -6px rgba(233, 64, 87, 0.15)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 20px 40px -5px rgba(233, 64, 87, 0.25), 0 10px 15px -6px rgba(138, 35, 135, 0.25)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 10px 25px -5px rgba(138, 35, 135, 0.15), 0 8px 10px -6px rgba(233, 64, 87, 0.15)";
               }}
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
@@ -116,11 +124,19 @@ export default function WorkSection() {
             className="group relative"
           >
             <div
-              className="rounded-3xl p-8 bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="rounded-3xl p-8 bg-white/50 backdrop-blur-md border border-gray-200/50 transition-all duration-300"
               style={{
                 background: "rgba(255, 255, 255, 0.5)",
                 backdropFilter: "blur(12px) saturate(180%)",
                 WebkitBackdropFilter: "blur(12px) saturate(180%)",
+                border: "1px solid rgba(138, 35, 135, 0.2)",
+                boxShadow: "0 10px 25px -5px rgba(138, 35, 135, 0.15), 0 8px 10px -6px rgba(233, 64, 87, 0.15)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 20px 40px -5px rgba(233, 64, 87, 0.25), 0 10px 15px -6px rgba(138, 35, 135, 0.25)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 10px 25px -5px rgba(138, 35, 135, 0.15), 0 8px 10px -6px rgba(233, 64, 87, 0.15)";
               }}
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
@@ -208,22 +224,30 @@ export default function WorkSection() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-          {/* DevTinder Project */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="group"
-          >
-            <div
-              className="h-full rounded-3xl p-8 bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-300"
-              style={{
-                background: "rgba(255, 255, 255, 0.5)",
-                backdropFilter: "blur(12px) saturate(180%)",
-                WebkitBackdropFilter: "blur(12px) saturate(180%)",
-              }}
-            >
+                {/* DevTinder Project */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="group"
+                >
+                  <div
+                    className="h-full rounded-3xl p-8 bg-white/50 backdrop-blur-md border border-gray-200/50 transition-all duration-300"
+                    style={{
+                      background: "rgba(255, 255, 255, 0.5)",
+                      backdropFilter: "blur(12px) saturate(180%)",
+                      WebkitBackdropFilter: "blur(12px) saturate(180%)",
+                      border: "1px solid rgba(138, 35, 135, 0.2)",
+                      boxShadow: "0 10px 25px -5px rgba(138, 35, 135, 0.15), 0 8px 10px -6px rgba(233, 64, 87, 0.15)",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = "0 20px 40px -5px rgba(233, 64, 87, 0.25), 0 10px 15px -6px rgba(138, 35, 135, 0.25)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = "0 10px 25px -5px rgba(138, 35, 135, 0.15), 0 8px 10px -6px rgba(233, 64, 87, 0.15)";
+                    }}
+                  >
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-3">
                   <div 
@@ -310,23 +334,31 @@ export default function WorkSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="group"
           >
-            <div
-              className="h-full rounded-3xl p-8 bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-300"
-              style={{
-                background: "rgba(255, 255, 255, 0.5)",
-                backdropFilter: "blur(12px) saturate(180%)",
-                WebkitBackdropFilter: "blur(12px) saturate(180%)",
-              }}
-            >
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <div 
-                    className="w-12 h-12 rounded-xl flex items-center justify-center"
+                  <div
+                    className="h-full rounded-3xl p-8 bg-white/50 backdrop-blur-md border border-gray-200/50 transition-all duration-300"
                     style={{
-                      background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                      background: "rgba(255, 255, 255, 0.5)",
+                      backdropFilter: "blur(12px) saturate(180%)",
+                      WebkitBackdropFilter: "blur(12px) saturate(180%)",
+                      border: "1px solid rgba(138, 35, 135, 0.2)",
+                      boxShadow: "0 10px 25px -5px rgba(138, 35, 135, 0.15), 0 8px 10px -6px rgba(233, 64, 87, 0.15)",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = "0 20px 40px -5px rgba(233, 64, 87, 0.25), 0 10px 15px -6px rgba(138, 35, 135, 0.25)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = "0 10px 25px -5px rgba(138, 35, 135, 0.15), 0 8px 10px -6px rgba(233, 64, 87, 0.15)";
                     }}
                   >
-                    <Database className="w-6 h-6 text-white" />
+                    <div className="flex items-start justify-between mb-6">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="w-12 h-12 rounded-xl flex items-center justify-center"
+                          style={{
+                            background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                          }}
+                        >
+                          <Database className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3

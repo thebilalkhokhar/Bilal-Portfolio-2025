@@ -72,11 +72,12 @@ export default function ContactSection() {
           className="relative"
         >
           <div
-            className="rounded-3xl p-8 md:p-12 bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-xl"
+            className="rounded-3xl p-8 md:p-12 bg-white/50 backdrop-blur-md border border-gray-200/50"
             style={{
               background: "rgba(255, 255, 255, 0.5)",
               backdropFilter: "blur(12px) saturate(180%)",
               WebkitBackdropFilter: "blur(12px) saturate(180%)",
+              boxShadow: "0 10px 25px -5px rgba(138, 35, 135, 0.15), 0 8px 10px -6px rgba(233, 64, 87, 0.15)",
             }}
           >
             {isSubmitted ? (
@@ -203,7 +204,16 @@ export default function ContactSection() {
                   <ButtonEffect
                     type="submit"
                     disabled={isSubmitting}
-                    Style="w-full px-8 py-4 rounded-full bg-gray-900 text-white font-semibold shadow-lg shadow-gray-900/30 hover:shadow-xl hover:shadow-gray-900/40 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
+                    Style="w-full px-8 py-4 rounded-full bg-gray-900 text-white font-semibold flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
+                  style={{
+                    boxShadow: "0 10px 25px -5px rgba(138, 35, 135, 0.3), 0 8px 10px -6px rgba(138, 35, 135, 0.3)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = "0 20px 35px -5px rgba(233, 64, 87, 0.4), 0 10px 15px -6px rgba(138, 35, 135, 0.4)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "0 10px 25px -5px rgba(138, 35, 135, 0.3), 0 8px 10px -6px rgba(138, 35, 135, 0.3)";
+                  }}
                     strength={2}
                   >
                     {isSubmitting ? (

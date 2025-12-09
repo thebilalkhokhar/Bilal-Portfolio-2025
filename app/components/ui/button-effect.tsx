@@ -13,6 +13,9 @@ interface ButtonEffectProps {
   href?: string;
   target?: string;
   rel?: string;
+  style?: React.CSSProperties;
+  onMouseEnter?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseLeave?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 function ButtonEffect({
@@ -24,6 +27,9 @@ function ButtonEffect({
   href,
   target,
   rel,
+  style,
+  onMouseEnter,
+  onMouseLeave,
 }: ButtonEffectProps) {
   // Check if button has black background
   const hasBlackBg = Style.includes("bg-gray-900") || Style.includes("bg-black");
@@ -48,6 +54,9 @@ function ButtonEffect({
         staggerChildren: 0.012,
       }}
       className={`${Style} cursor-pointer px-6 py-3 rounded-full relative overflow-hidden`}
+      style={style}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <motion.div
         variants={{
