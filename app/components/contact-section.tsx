@@ -228,65 +228,7 @@ export default function ContactSection() {
           <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full blur-3xl opacity-20 -z-10" />
         </motion.div>
 
-        {/* Contact Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 grid md:grid-cols-3 gap-6"
-        >
-          {[
-            {
-              icon: Mail,
-              title: "Email",
-              value: "your.email@example.com",
-              href: "mailto:your.email@example.com",
-            },
-            {
-              icon: User,
-              title: "Available",
-              value: "For new projects",
-              href: null,
-            },
-            {
-              icon: MessageSquare,
-              title: "Response",
-              value: "Within 24 hours",
-              href: null,
-            },
-          ].map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -4 }}
-              className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-md hover:shadow-lg transition-all duration-300"
-              style={{
-                background: "rgba(255, 255, 255, 0.5)",
-                backdropFilter: "blur(12px) saturate(180%)",
-                WebkitBackdropFilter: "blur(12px) saturate(180%)",
-              }}
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mb-4">
-                <item.icon className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
-              {item.href ? (
-                <a
-                  href={item.href}
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
-                >
-                  {item.value}
-                </a>
-              ) : (
-                <p className="text-gray-600">{item.value}</p>
-              )}
-            </motion.div>
-          ))}
-        </motion.div>
+
       </div>
     </section>
   );

@@ -90,30 +90,6 @@ export default function Footer() {
     );
   }, []);
 
-  useEffect(() => {
-    if (!footerRef.current) return;
-
-    gsap.to(".footer-curve", {
-      scrollTrigger: {
-        trigger: footerRef.current,
-        start: "top 75%",
-        end: "bottom 40%",
-        scrub: 1.5,
-      },
-      scaleY: 0,
-      duration: 2,
-    });
-
-    gsap.to(".footer-circle", {
-      scrollTrigger: {
-        trigger: footerRef.current,
-        start: "top 80%",
-        end: "90% center",
-        scrub: 1.5,
-      },
-      boxShadow: 0,
-    });
-  }, []);
 
   const name = "BILAL";
 
@@ -159,16 +135,6 @@ export default function Footer() {
 
   return (
     <div ref={footerRef} className="footer-section relative overflow-hidden z-[30] bg-gray-900">
-      {/* Curve */}
-      <div className="w-[120%] footer-curve absolute left-[50%] -top-[7rem] transform translate-x-[-50%] lg:h-[30px] h-[15px] z-50">
-        <div
-          style={{
-            boxShadow: "0px 60px 50px rgba(0,0,0,0.748)",
-          }}
-          className="footer-circle absolute right-[-10%] rounded-[50%] h-[1555%] w-[120%] bg-gray-900"
-        />
-      </div>
-
       <div className="h-[80vh] z-30 lg:h-[100vh] flex flex-col justify-between text-white lg:pt-24 pt-8 px-4 lg:px-8 relative bg-gray-900">
         <div className="flex flex-col lg:flex-row justify-between w-full">
           <div className="flex justify-between">
@@ -184,8 +150,8 @@ export default function Footer() {
                       <div key={linkIndex} className="overflow-hidden">
                         <Link
                           href={linkItem.link}
-                          target={linkItem?.isSocial ? "_blank" : undefined}
-                          rel={linkItem?.isSocial ? "noopener noreferrer" : undefined}
+                          target={"isSocial" in linkItem && linkItem.isSocial ? "_blank" : undefined}
+                          rel={"isSocial" in linkItem && linkItem.isSocial ? "noopener noreferrer" : undefined}
                         >
                           <h1 className="footer-text text-[0.95rem] cursor-pointer hover:text-gray-400 text-gray-300">
                             <FlipLink>{linkItem.text}</FlipLink>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const skills = [
@@ -130,9 +131,9 @@ export default function SkillsSection() {
                         }}
                       >
                         {/* Hover Glow Effect */}
-                        <div
+                        {/* <div
                           className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
-                        />
+                        /> */}
                         
                         {/* Icon Container */}
                         <div className="relative z-10 flex flex-col items-center gap-3">
@@ -164,25 +165,52 @@ export default function SkillsSection() {
           })}
         </div>
 
-        {/* Additional Info */}
+        {/* Infinite Slider */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
+          className="mt-16 overflow-hidden"
         >
           <div
-            className="inline-block rounded-2xl p-6 bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-lg"
+            className="rounded-2xl p-6 bg-white/50 backdrop-blur-md "
             style={{
               background: "rgba(255, 255, 255, 0.5)",
               backdropFilter: "blur(12px) saturate(180%)",
               WebkitBackdropFilter: "blur(12px) saturate(180%)",
             }}
           >
-            <p className="text-gray-700 font-medium">
-              Continuously learning and exploring new technologies to stay at the forefront of development
-            </p>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-infinite-scroll whitespace-nowrap">
+                {/* First set */}
+                <div className="flex items-center gap-8">
+                  {[...Array(3)].map((_, i) => (
+                    <span
+                      key={`first-${i}`}
+                      className="text-gray-700 font-medium text-lg flex items-center gap-2"
+                      style={{ fontFamily: "var(--font-space-grotesk)" }}
+                    >
+                      Continuously learning and exploring new technologies to stay at the forefront of development
+                      {/* <ArrowRight className="w-5 h-5 text-gray-500" /> */}
+                    </span>
+                  ))}
+                </div>
+                {/* Duplicate set for seamless loop */}
+                <div className="flex items-center gap-8 ml-8">
+                  {[...Array(3)].map((_, i) => (
+                    <span
+                      key={`second-${i}`}
+                      className="text-gray-700 font-medium text-lg flex items-center gap-2"
+                      style={{ fontFamily: "var(--font-space-grotesk)" }}
+                    >
+                      Continuously learning and exploring new technologies to stay at the forefront of development
+                      {/* <ArrowRight className="w-5 h-5 text-gray-500" /> */}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

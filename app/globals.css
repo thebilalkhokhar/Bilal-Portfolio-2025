@@ -1,16 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  --font-inter: 'Inter', sans-serif;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
 }
 
-.dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-}
-
- *,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -51,10 +47,18 @@ h1, h2, h3, h4, h5, h6 {
   background: #555;
 }
 
-.dark ::-webkit-scrollbar-thumb {
-  background: #555;
+/* Infinite Scroll Animation */
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #777;
+.animate-infinite-scroll {
+  animation: infinite-scroll 30s linear infinite;
+  display: flex;
+  width: fit-content;
 }
