@@ -8,6 +8,7 @@ import SkillsSection from "./components/skills-section";
 import ContactSection from "./components/contact-section";
 import Footer from "./components/footer";
 import { AppleHelloEnglishEffect } from "./components/ui/shadcn-io/apple-hello-effect";
+import SmoothScroll from "./components/smooth-scroll";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -20,7 +21,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <SmoothScroll>
       {/* Splash Screen */}
       {showSplash && (
         <div className="fixed inset-0 z-[100] bg-white flex items-center justify-center">
@@ -49,6 +50,6 @@ export default function Home() {
         </main>
         <Footer />
       </div>
-    </>
+    </SmoothScroll>
   );
 }
