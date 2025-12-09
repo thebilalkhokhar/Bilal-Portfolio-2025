@@ -48,6 +48,12 @@ function FlipLink({ children, isHovered }: FlipLinkProps) {
             }}
             transition={{ duration: 0.3 }}
             className="inline-block whitespace-pre"
+            style={{
+              background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
           >
             {child}
           </motion.span>

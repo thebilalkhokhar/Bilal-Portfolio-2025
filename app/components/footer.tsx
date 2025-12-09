@@ -144,8 +144,9 @@ export default function Footer() {
   };
 
   return (
-    <div ref={footerRef} className="footer-section relative overflow-hidden z-[30] bg-gray-900">
-      <div className="min-h-[80vh] z-30 lg:min-h-[100vh] flex flex-col justify-between text-white lg:pt-24 pt-8 px-4 lg:px-8 relative bg-gray-900 pb-8 lg:pb-24">
+    <div ref={footerRef} className="footer-section relative overflow-hidden z-[30] bg-white">
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#F27121] via-[#E94057] to-[#8A2387]"></div>
+      <div className="min-h-[80vh] z-30 lg:min-h-[100vh] flex flex-col justify-between text-black lg:pt-24 pt-8 px-4 lg:px-8 relative bg-white pb-8 lg:pb-24">
         <div className="flex flex-col lg:flex-row justify-between w-full">
           <div className="flex justify-between">
             {/* Links */}
@@ -153,7 +154,7 @@ export default function Footer() {
               {links.map((item, index) => (
                 <div key={index} className="flex flex-col gap-2">
                   <div className="overflow-hidden">
-                    <h1 className="footer-text opacity-50 text-sm">{item.title}</h1>
+                    <h1 className="footer-text opacity-50 text-sm text-black">{item.title}</h1>
                   </div>
                   <div className="flex gap-1 flex-col whitespace-nowrap leading-6">
                     {item.links?.map((linkItem, linkIndex) => (
@@ -163,7 +164,7 @@ export default function Footer() {
                           target={"isSocial" in linkItem && linkItem.isSocial ? "_blank" : undefined}
                           rel={"isSocial" in linkItem && linkItem.isSocial ? "noopener noreferrer" : undefined}
                         >
-                          <h1 className="footer-text text-[0.95rem] cursor-pointer hover:text-gray-400 text-gray-300">
+                          <h1 className="footer-text text-[0.95rem] cursor-pointer hover:text-gray-600 text-black">
                             <FlipLink>{linkItem.text}</FlipLink>
                           </h1>
                         </Link>
@@ -171,7 +172,7 @@ export default function Footer() {
                     ))}
                     {item.infos?.map((infoItem, infoIndex) => (
                       <div key={infoIndex} className="overflow-hidden">
-                        <p className="footer-text text-[0.95rem]">{infoItem.p}</p>
+                        <p className="footer-text text-[0.95rem] text-black">{infoItem.p}</p>
                       </div>
                     ))}
                   </div>
@@ -184,7 +185,7 @@ export default function Footer() {
             <div className="w-full">
               <ButtonEffect
                 strength={3.5}
-                Style="bg-gray-900 lg:w-fit w-full hover:text-gray-900 border-white hover:border-white border-[1px] text-white"
+                Style="bg-white lg:w-fit w-full hover:text-white border-black hover:border-black border-[1px] text-black"
                 href="tel:+923134432915"
               >
                 <div className="flex items-center gap-2">
@@ -196,7 +197,7 @@ export default function Footer() {
             <div className="w-full">
               <ButtonEffect
                 strength={3.5}
-                Style="bg-gray-900 border-white lg:w-fit w-full hover:border-white border-[1px] text-white"
+                Style="bg-white border-black lg:w-fit w-full hover:border-black border-[1px] text-black"
                 href="mailto:bilalkhokhar228@gmail.com"
               >
                 <div className="flex items-center gap-2">
@@ -239,13 +240,17 @@ export default function Footer() {
           >
             <h1
               ref={nameRef}
-              className="name-text flex overflow-hidden text-white justify-center items-center w-full mt-10"
+              className="name-text flex overflow-hidden justify-center items-center w-full mt-10"
               style={{
                 fontSize: "clamp(2.5rem, 10vw, 30rem)",
                 lineHeight: "0.85",
                 letterSpacing: "-0.02em",
                 minHeight: "clamp(3rem, 12vw, 30rem)",
                 visibility: "visible",
+                background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
               }}
             >
               {name.split("").map((char, i) => (
@@ -255,6 +260,10 @@ export default function Footer() {
                   style={{ 
                     opacity: 1,
                     visibility: "visible",
+                    background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
                   }}
                 >
                   {char}
