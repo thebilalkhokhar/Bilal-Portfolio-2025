@@ -1,0 +1,192 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+const skills = [
+  // Frontend
+  { name: "React", icon: "/skills/react.svg", category: "Frontend" },
+  { name: "Next.js", icon: "/skills/nextjs.svg", category: "Frontend" },
+  { name: "TypeScript", icon: "/skills/typescript.svg", category: "Frontend" },
+  { name: "JavaScript", icon: "/skills/javascript.svg", category: "Frontend" },
+  { name: "Tailwind CSS", icon: "/skills/tailwind.svg", category: "Frontend" },
+  { name: "Redux", icon: "/skills/redux.svg", category: "Frontend" },
+  
+  // Backend
+  { name: "Node.js", icon: "/skills/nodejs.svg", category: "Backend" },
+  { name: "Express", icon: "/skills/express.svg", category: "Backend" },
+  { name: "PostgreSQL", icon: "/skills/postgresql.svg", category: "Backend" },
+  { name: "MongoDB", icon: "/skills/mongodb.svg", category: "Backend" },
+  { name: "Prisma", icon: "/skills/prisma.svg", category: "Backend" },
+  { name: "Socket.io", icon: "/skills/socketio.svg", category: "Backend" },
+  
+  // Tools & Services
+  { name: "Git", icon: "/skills/git.svg", category: "Tools" },
+  { name: "GitHub", icon: "/skills/github.svg", category: "Tools" },
+  { name: "Docker", icon: "/skills/docker.svg", category: "Tools" },
+  { name: "Postman", icon: "/skills/postman.svg", category: "Tools" },
+  { name: "VS Code", icon: "/skills/vscode.svg", category: "Tools" },
+  { name: "Figma", icon: "/skills/figma.svg", category: "Tools" },
+  
+  // Cloud & Deployment
+  { name: "AWS", icon: "/skills/aws.svg", category: "Cloud" },
+  { name: "Stripe", icon: "/skills/stripe.svg", category: "Cloud" },
+  { name: "Netlify", icon: "/skills/netlify.svg", category: "Cloud" },
+  { name: "Render", icon: "/skills/render.svg", category: "Cloud" },
+  { name: "Cloudflare", icon: "/skills/cloudflare.svg", category: "Cloud" },
+  { name: "Nginx", icon: "/skills/nginx.svg", category: "Cloud" },
+];
+
+const categories = [
+  { name: "Frontend", color: "from-blue-500 to-cyan-500" },
+  { name: "Backend", color: "from-purple-500 to-pink-500" },
+  { name: "Tools", color: "from-green-500 to-emerald-500" },
+  { name: "Cloud", color: "from-orange-500 to-red-500" },
+];
+
+export default function SkillsSection() {
+  const getSkillsByCategory = (category: string) => {
+    return skills.filter((skill) => skill.category === category);
+  };
+
+  return (
+    <section
+      id="skills"
+      className="min-h-screen px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-b from-gray-50 to-white"
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2
+            className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 text-gray-900"
+            style={{ fontFamily: "var(--font-space-grotesk)" }}
+          >
+            Skills & Technologies
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Technologies I work with to build amazing digital experiences
+          </p>
+        </motion.div>
+
+        {/* Skills by Category */}
+        <div className="space-y-12">
+          {categories.map((category, categoryIndex) => {
+            const categorySkills = getSkillsByCategory(category.name);
+            
+            return (
+              <motion.div
+                key={category.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+                className="mb-12"
+              >
+                {/* Category Header */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className={`h-1 w-16 bg-gradient-to-r ${category.color} rounded-full`} />
+                  <h3
+                    className="text-2xl sm:text-3xl font-bold text-gray-900"
+                    style={{ fontFamily: "var(--font-space-grotesk)" }}
+                  >
+                    {category.name}
+                  </h3>
+                  <div className={`flex-1 h-1 bg-gradient-to-r ${category.color} rounded-full opacity-20`} />
+                </div>
+
+                {/* Skills Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                  {categorySkills.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.4,
+                        delay: index * 0.05,
+                        type: "spring",
+                        stiffness: 200,
+                      }}
+                      whileHover={{
+                        scale: 1.1,
+                        y: -8,
+                        transition: { duration: 0.2 },
+                      }}
+                      className="group relative"
+                    >
+                      <div
+                        className="relative rounded-2xl p-6 bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                        style={{
+                          background: "rgba(255, 255, 255, 0.5)",
+                          backdropFilter: "blur(12px) saturate(180%)",
+                          WebkitBackdropFilter: "blur(12px) saturate(180%)",
+                        }}
+                      >
+                        {/* Hover Glow Effect */}
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
+                        />
+                        
+                        {/* Icon Container */}
+                        <div className="relative z-10 flex flex-col items-center gap-3">
+                          <div className="relative w-16 h-16 sm:w-20 sm:h-20">
+                            <Image
+                              src={skill.icon}
+                              alt={skill.name}
+                              fill
+                              className="object-contain group-hover:scale-110 transition-transform duration-300"
+                            />
+                          </div>
+                          
+                          {/* Skill Name */}
+                          <span className="text-sm font-semibold text-gray-700 group-hover:text-gray-900 transition-colors text-center">
+                            {skill.name}
+                          </span>
+                        </div>
+
+                        {/* Animated Border on Hover */}
+                        {/* <div
+                          className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300 -z-10 blur-xs`}
+                        /> */}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Additional Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-16 text-center"
+        >
+          <div
+            className="inline-block rounded-2xl p-6 bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-lg"
+            style={{
+              background: "rgba(255, 255, 255, 0.5)",
+              backdropFilter: "blur(12px) saturate(180%)",
+              WebkitBackdropFilter: "blur(12px) saturate(180%)",
+            }}
+          >
+            <p className="text-gray-700 font-medium">
+              Continuously learning and exploring new technologies to stay at the forefront of development
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
