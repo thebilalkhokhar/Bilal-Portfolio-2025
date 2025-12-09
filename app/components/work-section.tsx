@@ -65,17 +65,7 @@ export default function WorkSection() {
                     <span>Nov 2025 - Present</span>
                   </div>
                 </div>
-                <ButtonEffect
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  Style="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium"
-                  strength={2}
-                >
-                  <Github className="w-4 h-4" />
-                  <span>GitHub</span>
-                  <ExternalLink className="w-3 h-3" />
-                </ButtonEffect>
+
               </div>
 
               <ul className="space-y-3 mb-6">
@@ -256,7 +246,7 @@ export default function WorkSection() {
 
               <div className="flex gap-3">
                 <ButtonEffect
-                  href="https://github.com"
+                  href="https://github.com/thebilalkhokhar/DevTinder-Backend"
                   target="_blank"
                   rel="noopener noreferrer"
                   Style="flex items-center gap-2 px-4 py-2 rounded-full bg-white hover:bg-gray-50 text-gray-700 font-medium shadow-sm"
@@ -266,7 +256,7 @@ export default function WorkSection() {
                   <span>GitHub</span>
                 </ButtonEffect>
                 <ButtonEffect
-                  href="https://example.com"
+                  href="http://16.16.63.243/login"
                   target="_blank"
                   rel="noopener noreferrer"
                   Style="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900 text-white font-medium hover:shadow-lg"
@@ -340,7 +330,7 @@ export default function WorkSection() {
 
               <div className="flex gap-3">
                 <ButtonEffect
-                  href="https://github.com"
+                  href="https://github.com/thebilalkhokhar/EATSONLINE-DEPLOY"
                   target="_blank"
                   rel="noopener noreferrer"
                   Style="flex items-center gap-2 px-4 py-2 rounded-full bg-white hover:bg-gray-50 text-gray-700 font-medium shadow-sm"
@@ -350,7 +340,7 @@ export default function WorkSection() {
                   <span>GitHub</span>
                 </ButtonEffect>
                 <ButtonEffect
-                  href="https://example.com"
+                  href="https://eatsonline-f3yo.onrender.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   Style="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900 text-white font-medium hover:shadow-lg"

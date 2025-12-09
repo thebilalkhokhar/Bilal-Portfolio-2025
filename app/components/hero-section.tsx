@@ -51,7 +51,7 @@ export default function HeroSection() {
               className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
               style={{ fontFamily: "var(--font-inter)" }}
             >
-              Software Engineer & Full Stack Developer passionate about creating
+              Software Engineer, Full Stack Developer & UI/UX Designer passionate about creating
               innovative solutions and building exceptional digital experiences.
               I transform ideas into reality through clean code and modern
               technologies.
@@ -90,12 +90,12 @@ export default function HeroSection() {
               className="flex gap-4 justify-center lg:justify-start"
             >
               {[
-                { icon: Github, href: "https://github.com", label: "GitHub" },
-                { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:your@email.com", label: "Email" },
+                { icon: Github, href: "https://github.com/thebilalkhokhar", label: "GitHub" },
+                { icon: Linkedin, href: "https://linkedin.com/in/thebilalkhokhar", label: "LinkedIn" },
+                { icon: Mail, href: "mailto:bilalkhokhar228@gmail.com", label: "Email" },
               ].map((social) => (
                 <motion.a
-                  key={social.label}
+                  key={social.label}  
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"

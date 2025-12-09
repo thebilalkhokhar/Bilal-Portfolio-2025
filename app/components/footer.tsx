@@ -31,9 +31,9 @@ export default function Footer() {
     {
       title: "SOCIALS",
       links: [
-        { text: "Email", link: "mailto:your@email.com", isSocial: true },
-        { text: "LinkedIn", link: "https://linkedin.com", isSocial: true },
-        { text: "GitHub", link: "https://github.com", isSocial: true },
+        { text: "Email", link: "mailto:bilalkhokhar228@gmail.com", isSocial: true },
+        { text: "LinkedIn", link: "https://linkedin.com/in/thebilalkhokhar", isSocial: true },
+        { text: "GitHub", link: "https://github.com/thebilalkhokhar", isSocial: true },
       ],
     },
     {
@@ -47,28 +47,38 @@ export default function Footer() {
   ];
 
   useEffect(() => {
-    if (!nameRef.current) return;
+    if (!nameRef.current || !footerRef.current) return;
 
     const letters = nameRef.current.querySelectorAll(".char");
+    
+    if (letters.length === 0) return;
 
+    // Set initial state - text starts hidden below
     gsap.set(letters, {
       yPercent: 100,
+      opacity: 1,
     });
 
-    gsap.to(letters, {
-      yPercent: 0,
-      duration: 1,
-      ease: "expo.out",
-      stagger: {
-        amount: 0.1,
-        from: "start",
-      },
-      scrollTrigger: {
-        trigger: nameRef.current,
-        start: "top 60%",
-        toggleActions: "play none none reverse",
+    // Animate on scroll - use footerRef as trigger
+    ScrollTrigger.create({
+      trigger: footerRef.current,
+      start: "top 80%",
+      onEnter: () => {
+        gsap.to(letters, {
+          yPercent: 0,
+          duration: 1,
+          ease: "expo.out",
+          stagger: {
+            amount: 0.1,
+            from: "start",
+          },
+        });
       },
     });
+  }, []);
+
+  useEffect(() => {
+    if (!footerRef.current) return;
 
     // Footer text animation
     gsap.fromTo(
@@ -135,7 +145,7 @@ export default function Footer() {
 
   return (
     <div ref={footerRef} className="footer-section relative overflow-hidden z-[30] bg-gray-900">
-      <div className="h-[80vh] z-30 lg:h-[100vh] flex flex-col justify-between text-white lg:pt-24 pt-8 px-4 lg:px-8 relative bg-gray-900">
+      <div className="min-h-[80vh] z-30 lg:min-h-[100vh] flex flex-col justify-between text-white lg:pt-24 pt-8 px-4 lg:px-8 relative bg-gray-900 pb-8 lg:pb-24">
         <div className="flex flex-col lg:flex-row justify-between w-full">
           <div className="flex justify-between">
             {/* Links */}
@@ -175,11 +185,11 @@ export default function Footer() {
               <ButtonEffect
                 strength={3.5}
                 Style="bg-gray-900 lg:w-fit w-full hover:text-gray-900 border-white hover:border-white border-[1px] text-white"
-                href="tel:+1234567890"
+                href="tel:+923134432915"
               >
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <span>+1234567890</span>
+                  <span>+923134432915</span>
                 </div>
               </ButtonEffect>
             </div>
@@ -187,11 +197,11 @@ export default function Footer() {
               <ButtonEffect
                 strength={3.5}
                 Style="bg-gray-900 border-white lg:w-fit w-full hover:border-white border-[1px] text-white"
-                href="mailto:your@email.com"
+                href="mailto:bilalkhokhar228@gmail.com"
               >
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <span>your@email.com</span>
+                  <span>bilalkhokhar228@gmail.com</span>
                 </div>
               </ButtonEffect>
             </div>
@@ -224,15 +234,29 @@ export default function Footer() {
           </div>
 
           <div
-            className="font-black lg:leading-[28rem] leading-[10rem] lg:text-[30rem] text-[8rem] flex flex-col text-center"
+            className="font-black flex flex-col text-center w-full mt-4 md:mt-6 lg:mt-0"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
             <h1
               ref={nameRef}
-              className="name-text -mb-[5rem] flex overflow-hidden text-white"
+              className="name-text flex overflow-hidden text-white justify-center items-center w-full mt-10"
+              style={{
+                fontSize: "clamp(2.5rem, 10vw, 30rem)",
+                lineHeight: "0.85",
+                letterSpacing: "-0.02em",
+                minHeight: "clamp(3rem, 12vw, 30rem)",
+                visibility: "visible",
+              }}
             >
               {name.split("").map((char, i) => (
-                <span key={i} className="char inline-block">
+                <span 
+                  key={i} 
+                  className="char inline-block" 
+                  style={{ 
+                    opacity: 1,
+                    visibility: "visible",
+                  }}
+                >
                   {char}
                 </span>
               ))}
