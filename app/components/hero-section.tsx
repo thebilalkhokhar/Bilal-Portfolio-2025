@@ -26,7 +26,14 @@ export default function HeroSection() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="inline-block mb-4"
             >
-              <span className="px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold tracking-wide uppercase" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+              <span 
+                className="px-4 py-2 rounded-full text-sm font-semibold tracking-wide uppercase" 
+                style={{ 
+                  fontFamily: "var(--font-space-grotesk)",
+                  background: "rgba(242, 113, 33, 0.1)",
+                  color: "#8A2387",
+                }}
+              >
                 👋 Hello, I&apos;m
               </span>
             </motion.div>
@@ -39,7 +46,16 @@ export default function HeroSection() {
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
               <span className="text-gray-900 block">Bilal Ahmad</span>
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent block">
+              <span 
+                className="bg-clip-text text-transparent block"
+                style={{
+                  background: "#8A2387",
+                  background: "-webkit-linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                  background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
                 Full Stack Developer
               </span>
             </motion.h1>
@@ -119,7 +135,14 @@ export default function HeroSection() {
           >
             <div className="relative">
               {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full blur-3xl opacity-30 animate-pulse" />
+              <div 
+                className="absolute inset-0 rounded-full blur-3xl opacity-30 animate-pulse"
+                style={{
+                  background: "#8A2387",
+                  background: "-webkit-linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                  background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                }}
+              />
               
               {/* Image Container */}
               <motion.div

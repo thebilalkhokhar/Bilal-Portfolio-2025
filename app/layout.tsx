@@ -23,7 +23,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
+  title: "Bilal Ahmad | Software Engineer",
   description: "Professional portfolio website",
 };
 

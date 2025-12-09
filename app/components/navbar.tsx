@@ -42,9 +42,14 @@ export default function Navbar() {
           >
             <Link
               href="#home"
-              className="text-lg md:text-xl font-semibold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent block"
+              className="text-lg md:text-xl font-semibold bg-clip-text text-transparent block"
+              style={{
+                background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
             >
-              Portfolio
+              &lt;BILAL /&gt;
             </Link>
           </motion.div>
 
@@ -65,7 +70,9 @@ export default function Navbar() {
                     <motion.span
                       className="absolute inset-0 rounded-full"
                       initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
-                      whileHover={{ backgroundColor: "rgba(0, 0, 0, 0.08)" }}
+                      whileHover={{ 
+                        background: "linear-gradient(to right, rgba(242, 113, 33, 0.1), rgba(233, 64, 87, 0.1), rgba(138, 35, 135, 0.1))"
+                      }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
                     />
                     <motion.span
@@ -73,7 +80,7 @@ export default function Navbar() {
                       whileHover={{ scale: 1.05 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                      <item.icon className="w-4 h-4" />
+                      <item.icon className="w-4 h-4" style={{ color: "#8A2387" }} />
                       <span className="whitespace-nowrap">{item.name}</span>
                     </motion.span>
                   </Link>
@@ -89,7 +96,17 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
               onClick={toggleMenu}
-              className="p-2 rounded-full bg-gray-100/50 text-gray-700 hover:bg-gray-200/50 transition-all duration-300"
+              className="p-2 rounded-full transition-all duration-300"
+              style={{
+                background: "rgba(242, 113, 33, 0.1)",
+                color: "#8A2387",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(233, 64, 87, 0.15)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(242, 113, 33, 0.1)";
+              }}
               aria-label="Toggle menu"
             >
               {isOpen ? (
@@ -122,9 +139,16 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-100/50 transition-all duration-300 group"
+                      className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group"
+                      style={{ color: "#8A2387" }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "rgba(242, 113, 33, 0.1)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "transparent";
+                      }}
                     >
-                      <item.icon className="w-5 h-5" />
+                      <item.icon className="w-5 h-5" style={{ color: "#8A2387" }} />
                       <span className="font-medium">{item.name}</span>
                     </Link>
                   </motion.div>

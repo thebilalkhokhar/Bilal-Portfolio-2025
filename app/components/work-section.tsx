@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Calendar, Building2, Code2, Globe, Zap, Shield, Database, Smartphone } from "lucide-react";
+import { Github, Calendar, Building2, Code2, Globe, Zap, Shield, Database, Smartphone } from "lucide-react";
 import ButtonEffect from "./ui/button-effect";
 
 export default function WorkSection() {
@@ -51,7 +51,7 @@ export default function WorkSection() {
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <Building2 className="w-6 h-6 text-blue-600" />
+                    <Building2 className="w-6 h-6" style={{ color: "#E94057" }} />
                     <h3
                       className="text-2xl font-bold text-gray-900"
                       style={{ fontFamily: "var(--font-space-grotesk)" }}
@@ -74,7 +74,7 @@ export default function WorkSection() {
                   "Implemented audit logs, email notifications, filters/pagination, and admin dashboards for jobs, applications, and system monitoring",
                 ].map((point, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-gray-700">
-                    <Zap className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                    <Zap className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#E94057" }} />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -94,7 +94,11 @@ export default function WorkSection() {
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium"
+                    className="px-3 py-1 rounded-full text-sm font-medium"
+                    style={{
+                      background: "rgba(242, 113, 33, 0.1)",
+                      color: "#8A2387",
+                    }}
                   >
                     {tech}
                   </span>
@@ -122,7 +126,7 @@ export default function WorkSection() {
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <Smartphone className="w-6 h-6 text-purple-600" />
+                    <Smartphone className="w-6 h-6" style={{ color: "#E94057" }} />
                     <h3
                       className="text-2xl font-bold text-gray-900"
                       style={{ fontFamily: "var(--font-space-grotesk)" }}
@@ -144,20 +148,38 @@ export default function WorkSection() {
                   "Created interactive prototypes in Figma, cutting design approval time by 50% and raising client satisfaction to 95%",
                 ].map((point, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-gray-700">
-                    <Zap className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
+                    <Zap className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#E94057" }} />
                     <span>{point}</span>
                   </li>
                 ))}
               </ul>
 
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">
+                <span 
+                  className="px-3 py-1 rounded-full text-sm font-medium"
+                  style={{
+                    background: "rgba(242, 113, 33, 0.1)",
+                    color: "#8A2387",
+                  }}
+                >
                   Figma
                 </span>
-                <span className="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">
+                <span 
+                  className="px-3 py-1 rounded-full text-sm font-medium"
+                  style={{
+                    background: "rgba(242, 113, 33, 0.1)",
+                    color: "#8A2387",
+                  }}
+                >
                   UI/UX Design
                 </span>
-                <span className="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">
+                <span 
+                  className="px-3 py-1 rounded-full text-sm font-medium"
+                  style={{
+                    background: "rgba(242, 113, 33, 0.1)",
+                    color: "#8A2387",
+                  }}
+                >
                   Prototyping
                 </span>
               </div>
@@ -195,11 +217,21 @@ export default function WorkSection() {
             className="group"
           >
             <div
-              className="h-full rounded-3xl p-8 bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200/50 shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="h-full rounded-3xl p-8 bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-300"
+              style={{
+                background: "rgba(255, 255, 255, 0.5)",
+                backdropFilter: "blur(12px) saturate(180%)",
+                WebkitBackdropFilter: "blur(12px) saturate(180%)",
+              }}
             >
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                  <div 
+                    className="w-12 h-12 rounded-xl flex items-center justify-center"
+                    style={{
+                      background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                    }}
+                  >
                     <Code2 className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -227,7 +259,7 @@ export default function WorkSection() {
                   "Deployed on AWS EC2",
                 ].map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                    <Shield className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                    <Shield className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#E94057" }} />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -237,7 +269,8 @@ export default function WorkSection() {
                 {["MERN", "Socket.io", "Razorpay", "JWT", "AWS", "Cron Jobs"].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 rounded-full bg-white/80 text-blue-700 text-xs font-medium"
+                    className="px-3 py-1 rounded-full bg-white/80 text-xs font-medium"
+                    style={{ color: "#8A2387" }}
                   >
                     {tech}
                   </span>
@@ -278,11 +311,21 @@ export default function WorkSection() {
             className="group"
           >
             <div
-              className="h-full rounded-3xl p-8 bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200/50 shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="h-full rounded-3xl p-8 bg-white/50 backdrop-blur-md border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-300"
+              style={{
+                background: "rgba(255, 255, 255, 0.5)",
+                backdropFilter: "blur(12px) saturate(180%)",
+                WebkitBackdropFilter: "blur(12px) saturate(180%)",
+              }}
             >
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
+                  <div 
+                    className="w-12 h-12 rounded-xl flex items-center justify-center"
+                    style={{
+                      background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
+                    }}
+                  >
                     <Database className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -311,7 +354,7 @@ export default function WorkSection() {
                   "Optimized backend APIs",
                 ].map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                    <Shield className="w-4 h-4 text-purple-600 shrink-0 mt-0.5" />
+                    <Shield className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#E94057" }} />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -321,7 +364,8 @@ export default function WorkSection() {
                 {["MERN", "Stripe", "Real-time", "Admin Dashboard", "RESTful APIs"].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 rounded-full bg-white/80 text-purple-700 text-xs font-medium"
+                    className="px-3 py-1 rounded-full bg-white/80 text-xs font-medium"
+                    style={{ color: "#8A2387" }}
                   >
                     {tech}
                   </span>
