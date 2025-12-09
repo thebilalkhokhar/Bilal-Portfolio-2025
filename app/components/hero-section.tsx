@@ -49,8 +49,6 @@ export default function HeroSection() {
               <span 
                 className="bg-clip-text text-transparent block"
                 style={{
-                  background: "#8A2387",
-                  background: "-webkit-linear-gradient(to right, #F27121, #E94057, #8A2387)",
                   background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -172,8 +170,6 @@ export default function HeroSection() {
               <div 
                 className="absolute inset-0 rounded-full blur-3xl opacity-30 animate-pulse"
                 style={{
-                  background: "#8A2387",
-                  background: "-webkit-linear-gradient(to right, #F27121, #E94057, #8A2387)",
                   background: "linear-gradient(to right, #F27121, #E94057, #8A2387)",
                 }}
               />

@@ -4,13 +4,13 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 interface MagneticWrapperProps {
-  children: React.ReactElement;
+  children: React.ReactNode;
   style?: React.CSSProperties;
   strength?: number;
 }
 
 export default function MagneticWrapper({ children, style, strength = 2 }: MagneticWrapperProps) {
-  const magnetic = useRef<HTMLElement>(null);
+  const magnetic = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (window.innerWidth >= 1024 && magnetic.current) {
@@ -50,14 +50,17 @@ export default function MagneticWrapper({ children, style, strength = 2 }: Magne
     }
   }, [strength]);
 
-  return React.cloneElement(children, {
-    ref: magnetic,
-    style: {
-      ...children.props.style,
-      ...style,
-      willChange: "transform",
-      backfaceVisibility: "hidden",
-    },
-  });
+  return (
+    <div
+      ref={magnetic}
+      style={{
+        ...style,
+        willChange: "transform",
+        backfaceVisibility: "hidden",
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
