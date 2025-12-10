@@ -23,7 +23,9 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full max-w-4xl xl:max-w-5xl rounded-full pointer-events-auto"
+        className={`w-full max-w-4xl xl:max-w-5xl pointer-events-auto ${
+          isOpen ? "rounded-4xl" : "rounded-full"
+        }`}
         style={{
           background: "rgba(255, 255, 255, 0.5)",
           backdropFilter: "blur(12px) saturate(180%)",
@@ -126,11 +128,38 @@ export default function Navbar() {
               }}
               aria-label="Toggle menu"
             >
-              {isOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
+              <div className="relative w-5 h-5">
+                <motion.div
+                  initial={false}
+                  animate={{
+                    rotate: isOpen ? 90 : 0,
+                    scale: isOpen ? 0 : 1,
+                    opacity: isOpen ? 0 : 1,
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <Menu className="w-5 h-5" />
+                </motion.div>
+                <motion.div
+                  initial={false}
+                  animate={{
+                    rotate: isOpen ? 0 : -90,
+                    scale: isOpen ? 1 : 0,
+                    opacity: isOpen ? 1 : 0,
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <X className="w-5 h-5" />
+                </motion.div>
+              </div>
             </motion.button>
           </div>
         </div>
@@ -143,7 +172,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden overflow-hidden border-t border-gray-200/50"
+              className="md:hidden overflow-hidden border-t border-gray-200/50 rounded-b-2xl"
             >
               <div className="px-4 pt-2 pb-4 space-y-1">
                 {navItems.map((item, index) => (
